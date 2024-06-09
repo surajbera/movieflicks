@@ -1,3 +1,10 @@
+import { SearchList, Header } from "../components";
+
 export default function SearchPage() {
-  return <div>SearchPage</div>;
+  return (
+    <>
+      <Header />
+      <SearchList />
+    </>
+  );
 }

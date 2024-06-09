@@ -1,6 +1,6 @@
 // libraries
 import { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 // types
 import { MovieCard as MovieCardType } from "../../types/movies";
@@ -16,28 +16,34 @@ import { useFetch } from "../../hooks/useFetch";
 // context
 import { useAppContext } from "../../hooks/useAppContext";
 
-export default function GenreList() {
-  const { id } = useParams();
+export default function SearchList() {
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("query");
   const { apiKey, apiBaseUrl } = useAppContext();
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState<MovieCardType[]>([]);
   const totalPages = useRef(0);
 
-  // Reset state when the genre ID changes
+  // Reset state when the search query changes
   useEffect(() => {
     setPage(1);
     setMovies([]);
     totalPages.current = 0;
-  }, [id]);
+  }, [query]);
 
   const { data, isPending, error } = useFetch<{ results: MovieCardType[]; total_pages: number }>(
-    `${apiBaseUrl}/discover/movie?api_key=${apiKey}&with_genres=${id}&page=${page}&vote_count.gte=100`
+    `${apiBaseUrl}/search/movie?api_key=${apiKey}&query=${encodeURIComponent(
+      query || ""
+    )}&page=${page}`
   );
 
   useEffect(() => {
     if (data && data.results.length > 0) {
       setMovies((prev) => [...prev, ...data.results]);
       totalPages.current = data.total_pages;
+    } else if (data && data.results.length === 0) {
+      setMovies([]); // Ensure movies are cleared if no results
+      totalPages.current = 0; // Ensure totalPages is set to 0
     }
   }, [data]);
 
@@ -67,7 +73,8 @@ export default function GenreList() {
           ))}
         </ul>
         {isPending && page !== 1 && <Loader />}
-        {page >= totalPages.current && !isPending && (
+        {movies.length === 0 && !isPending && <div>No results found</div>}
+        {page >= totalPages.current && !isPending && movies.length > 0 && (
           <h3 className='listing-end'>You reached end of the page!</h3>
         )}
       </div>
