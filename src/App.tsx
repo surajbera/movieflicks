@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // pages
-import { HomePage, ErrorPage, GenrePage, SearchPage } from "./pages";
+import { HomePage, ErrorPage, GenrePage, SearchPage, MovieDetailPage } from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <SearchPage />,
+  },
+  {
+    path: "/movie/:id",
+    element: <MovieDetailPage />,
   },
   {
     path: "*",

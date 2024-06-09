@@ -7,6 +7,9 @@ import { useAppContext } from "../../hooks/useAppContext";
 // components
 import MovieRating from "./MovieRating";
 
+// libraries
+import { Link } from "react-router-dom";
+
 type MovieCardProps = {
   movie: MovieCardType;
 };
@@ -19,11 +22,15 @@ export default function MovieCard({ movie }: MovieCardProps) {
 
   return (
     <li className='movie-card'>
-      <img src={imageUrl} alt={movie.title} />
-      <div className='movie-info'>
-        <h3 className='movie-title card-title two-line'>{movie.title}</h3>
-        <MovieRating rating={movie.vote_average} />
-      </div>
+      <Link to={`/movie/${movie.id}`}>
+        {" "}
+        {/* Update this line */}
+        <img src={imageUrl} alt={movie.title} />
+        <div className='movie-info'>
+          <h3 className='movie-title card-title two-line'>{movie.title}</h3>
+          <MovieRating rating={movie.vote_average} />
+        </div>
+      </Link>
     </li>
   );
 }
