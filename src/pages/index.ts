@@ -1,4 +1,5 @@
 import HomePage from "./HomePage";
 import ErrorPage from "./ErrorPage";
+import GenrePage from "./GenrePage";
 
-export { HomePage, ErrorPage };
+export { HomePage, ErrorPage, GenrePage };

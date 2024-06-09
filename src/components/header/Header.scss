@@ -2,9 +2,63 @@
   color: var(--accent-color);
   display: flex;
   align-items: center;
+  margin: 1rem 0;
 
   a {
     color: inherit;
     font-size: 2.5rem;
+  }
+}
+
+.genre-wrap {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 0 0.5rem;
+  // firefox customizations
+
+  --scrollbar-track-clr: #94a3b8;
+  --scrollbar-thumb-clr: #f87171;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-clr) var(--scrollbar-track-clr);
+
+  // chrome, safari, opera customizations
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-clr);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-clr);
+    border-radius: 10px;
+    border: none;
+  }
+
+  .genre-item {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    background: var(--subtle-gray);
+    color: #fff;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      color: inherit;
+      font: inherit;
+    }
+
+    &:hover {
+      background: var(--accent-color);
+      color: white;
+    }
   }
 }

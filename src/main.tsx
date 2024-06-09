@@ -8,8 +8,13 @@ import App from "./App.tsx";
 // styles
 import "./assets/scss/index.scss";
 
+// provider
+import { AppProvider } from "./context/AppContext.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <AppProvider>
+      <App />
+    </AppProvider>
   </React.StrictMode>
 );
