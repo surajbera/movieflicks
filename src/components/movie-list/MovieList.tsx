@@ -1,5 +1,5 @@
 // styles
-import "./MovieList.scss";
+import "../common/MovieList.scss";
 
 // libraries
 import { useEffect, useState, useRef } from "react";
@@ -12,7 +12,7 @@ import { MovieCard as MovieCardType } from "../../types/movies";
 
 // components
 import Loader from "../Loader";
-import MovieCard from "./MovieCard";
+import MovieCard from "../common/MovieCard";
 import MovieListShimmerUi from "../common/MovieListShimmerUi";
 
 // hooks

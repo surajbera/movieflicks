@@ -1,38 +1,34 @@
-// styles
-import "../common/MovieList.scss";
-
-// libraries
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-
-// context
-import { useAppContext } from "../../hooks/useAppContext";
-
-// types
 import { MovieCard as MovieCardType } from "../../types/movies";
-
-// components
 import Loader from "../Loader";
 import MovieCard from "../common/MovieCard";
 import MovieListShimmerUi from "../common/MovieListShimmerUi";
-
-// hooks
 import { useFetch } from "../../hooks/useFetch";
+import { useAppContext } from "../../hooks/useAppContext";
 
 export default function GenreList() {
-  const { id } = useParams(); // Extract genre ID from URL
+  const { id } = useParams();
   const { apiKey, apiBaseUrl } = useAppContext();
-  const [page, setPage] = useState(1); // Manage pagination instead of year
+  const [page, setPage] = useState(1);
   const [movies, setMovies] = useState<MovieCardType[]>([]);
+  const totalPages = useRef(0);
+
+  // Reset state when the genre ID changes
+  useEffect(() => {
+    setPage(1);
+    setMovies([]);
+    totalPages.current = 0;
+  }, [id]);
+
   const { data, isPending, error } = useFetch<{ results: MovieCardType[]; total_pages: number }>(
     `${apiBaseUrl}/discover/movie?api_key=${apiKey}&with_genres=${id}&page=${page}&vote_count.gte=100`
   );
-  const totalPages = useRef(0);
 
   useEffect(() => {
     if (data && data.results.length > 0) {
-      setMovies((prev) => [...prev, ...data.results]); // Append new movies to the existing list
-      totalPages.current = data.total_pages; // Update total pages
+      setMovies((prev) => [...prev, ...data.results]);
+      totalPages.current = data.total_pages;
     }
   }, [data]);
 
@@ -43,7 +39,7 @@ export default function GenreList() {
         document.documentElement.scrollHeight - 1;
 
       if (bottomReached && !isPending && page < totalPages.current) {
-        setPage((prev) => prev + 1); // Increment page to fetch next set of movies
+        setPage((prev) => prev + 1);
       }
     };
 
