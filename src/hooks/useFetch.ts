@@ -15,6 +15,7 @@ export const useFetch = <T>(url: string): useFetchReturn<T> => {
 
     const fetchData = async () => {
       setIsPending(true);
+      setError(null);
 
       try {
         const response = await axios.get<T>(url, {
