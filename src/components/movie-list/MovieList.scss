@@ -48,3 +48,24 @@
     font-size: 1.3rem;
   }
 }
+.listing-end {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #94a3b8;
+}
+
+@media only screen and (min-width: 767px) {
+  .movie-list {
+    .movie-card {
+      width: calc(33.33% - 1rem);
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .movie-list {
+    .movie-card {
+      width: calc(25% - 1.2rem);
+    }
+  }
+}

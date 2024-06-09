@@ -21,7 +21,7 @@ export const useFetch = <T>(url: string): useFetchReturn<T> => {
         const response = await axios.get<T>(url, {
           cancelToken: source.token,
         });
-        await new Promise((resolve) => setTimeout(resolve, 10000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         setIsPending(false);
         setData(response.data);
         setError(null);
