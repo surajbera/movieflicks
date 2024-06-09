@@ -1,5 +1,5 @@
 // libraries
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // styles
 import "./Header.scss";
@@ -23,7 +23,7 @@ export default function Header() {
     <header className='header'>
       <div className='container'>
         <h1 className='header-logo'>
-          <Link to='/'>{title}</Link>
+          <NavLink to='/'>{title}</NavLink>
         </h1>
 
         <ul className='genre-wrap'>
@@ -35,7 +35,12 @@ export default function Header() {
             data.genres.length > 0 &&
             data.genres.map((genre) => (
               <li key={genre.id} className='genre-item'>
-                <Link to={`/genre/${genre.id}`}>{genre.name}</Link>
+                <NavLink
+                  to={`/genre/${genre.id}`}
+                  className={({ isActive }) => (isActive ? "active" : "inactive")}
+                >
+                  {genre.name}
+                </NavLink>
               </li>
             ))}
         </ul>

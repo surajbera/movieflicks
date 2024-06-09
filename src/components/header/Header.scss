@@ -42,7 +42,6 @@
 
   .genre-item {
     display: inline-flex;
-    background: var(--subtle-gray);
     color: #fff;
     margin: 0 0.5rem;
     border-radius: 0.5rem;
@@ -61,11 +60,16 @@
       font: inherit;
       display: block;
       padding: 0.5rem 1rem;
-    }
+      background: var(--subtle-gray);
+      transition: all 0.3s ease;
 
-    &:hover {
-      background: var(--accent-color);
-      color: white;
+      &:hover {
+        background: var(--accent-color);
+      }
+
+      &.active {
+        background: var(--accent-color);
+      }
     }
   }
 
