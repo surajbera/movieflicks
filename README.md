@@ -1,2 +1,1 @@
-- Fetch data starting from 2012 in MovieList component
-- Remove the promise from useFetch
+
