@@ -13,6 +13,7 @@ import { MovieCard as MovieCardType } from "../../types/movies";
 // components
 import Loader from "../Loader";
 import MovieCard from "./MovieCard";
+import MovieListShimmerUi from "./MovieListShimmerUi";
 
 // hooks
 import { useFetch } from "../../hooks/useFetch";
@@ -56,7 +57,11 @@ export default function MovieList() {
   return (
     <main className='movie-section'>
       <div className='container'>
-        {isPending && isFirstLoad.current && <div>Loading...</div>}
+        {isPending && isFirstLoad.current && (
+          <div>
+            <MovieListShimmerUi />
+          </div>
+        )}
         {error && !isPending && <div>{error}</div>}
         {Object.entries(moviesByYear).map(([year, movies]) => (
           <section key={year} className='yearly-section'>
