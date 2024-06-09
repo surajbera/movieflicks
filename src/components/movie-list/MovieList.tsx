@@ -13,7 +13,7 @@ import { MovieCard as MovieCardType } from "../../types/movies";
 // components
 import Loader from "../Loader";
 import MovieCard from "./MovieCard";
-import MovieListShimmerUi from "./MovieListShimmerUi";
+import MovieListShimmerUi from "../common/MovieListShimmerUi";
 
 // hooks
 import { useFetch } from "../../hooks/useFetch";
