@@ -10,6 +10,7 @@ import { useAppContext } from "../../hooks/useAppContext";
 
 // types
 import { GenreResponse } from "../../types/genre";
+import HeaderShimmer from "./HeaderShimmer";
 
 export default function Header() {
   const { apiKey, baseUrl } = useAppContext();
@@ -27,7 +28,7 @@ export default function Header() {
 
         <ul className='genre-wrap'>
           {error && <li>{error}</li>}
-          {isPending && <li>Loading...</li>}
+          {isPending && <HeaderShimmer />}
           {!data?.genres.length && !isPending && <li>No genres found</li>}
           {data &&
             data.genres &&

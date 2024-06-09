@@ -61,4 +61,21 @@
       color: white;
     }
   }
+
+  .genre-shimmer {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    min-width: 8rem;
+    min-height: 3.7rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
