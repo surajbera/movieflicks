@@ -1,6 +1,7 @@
 export interface AppContextType {
   apiKey: string;
-  baseUrl: string;
+  apiBaseUrl: string;
+  imageBaseUrl: string;
 }
 
 export interface AppContextProviderProps {
