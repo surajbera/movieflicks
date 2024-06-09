@@ -10,7 +10,8 @@
   --text-color: #171a1f;
   --cat-head-color: #f8f9fa;
   --accent-color: #ef293a;
-  --subtle-gray: #64748b;
+  --subtle-gray: #484848;
+  --body-clr: #121212;
 }
 
 body {
@@ -21,7 +22,8 @@ body {
   font-family: var(--font-family);
   font-size: 1.6rem;
   min-height: 100vh;
-  color: var(--text-color);
+  color: #fff;
+  background-color: var(--body-clr);
 }
 
 .tilted-text {
