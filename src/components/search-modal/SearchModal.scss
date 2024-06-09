@@ -1,0 +1,80 @@
+@keyframes slideUp {
+  from {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+.modal-content {
+  animation: slideUp 0.2s ease-out forwards;
+  position: relative;
+
+  input {
+    width: 100%;
+    height: 6rem;
+    background: var(--subtle-gray);
+    padding: 0 4.5rem 0 1rem;
+
+    color: #fff;
+    font-size: 2rem;
+
+    &::placeholder {
+      color: #fff;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    svg {
+      font-size: 2.5rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .modal-content {
+    input {
+      height: 8rem;
+      font-size: 3rem;
+      padding: 0 7.5rem 0 1.5rem;
+    }
+
+    button {
+      right: 1.5rem;
+      svg {
+        font-size: 4rem;
+      }
+    }
+  }
+}

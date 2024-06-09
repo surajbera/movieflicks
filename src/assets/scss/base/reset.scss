@@ -141,7 +141,6 @@ input:required:invalid {
   background: var(--selection-bg-color);
 }
 label,
-input,
 button {
   cursor: pointer;
 }
@@ -178,5 +177,11 @@ button {
 }
 
 .no-overflow {
-  overflow: hidden;
+  overflow-y: scroll;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overscroll-behavior: contain;
 }
