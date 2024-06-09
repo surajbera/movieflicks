@@ -1,3 +1,10 @@
+import { GenreList, Header } from "../components";
+
 export default function GenrePage() {
-  return <div>GenrePage</div>;
+  return (
+    <>
+      <Header />
+      <GenreList />
+    </>
+  );
 }
