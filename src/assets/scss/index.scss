@@ -23,3 +23,10 @@ body {
   min-height: 100vh;
   color: var(--text-color);
 }
+
+.tilted-text {
+  font-size: 60px;
+  color: red;
+  font-weight: bold;
+  display: inline-block;
+}
