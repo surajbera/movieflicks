@@ -1,0 +1,25 @@
+@import "base/reset";
+@import "base/fonts";
+@import "base/error-page";
+
+:root {
+  --container-width: 117rem;
+  --selection-bg-color: #cbd5e1;
+  --selection-text-color: #000;
+  --font-family: "Inter", sans-serif;
+  --text-color: #171a1f;
+  --cat-head-color: #f8f9fa;
+  --accent-color: #ef293a;
+  --subtle-gray: #64748b;
+}
+
+body {
+  position: relative;
+  font-weight: 400;
+  line-height: 1.7;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  min-height: 100vh;
+  color: var(--text-color);
+}
