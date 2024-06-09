@@ -13,23 +13,23 @@ import { GenreResponse } from "../../types/genre";
 import HeaderShimmer from "./HeaderShimmer";
 
 export default function Header() {
-  const { apiKey, baseUrl } = useAppContext();
+  const { apiKey, apiBaseUrl } = useAppContext();
   const { data, isPending, error } = useFetch<GenreResponse>(
-    `${baseUrl}/genre/movie/list?api_key=${apiKey}`
+    `${apiBaseUrl}/genre/movie/list?api_key=${apiKey}`
   );
   const title = "MOVIEFLIX";
 
   return (
-    <header>
+    <header className='header'>
       <div className='container'>
         <h1 className='header-logo'>
           <Link to='/'>{title}</Link>
         </h1>
 
         <ul className='genre-wrap'>
-          {error && <li>{error}</li>}
           {isPending && <HeaderShimmer />}
-          {!data?.genres.length && !isPending && <li>No genres found</li>}
+          {error && !isPending && <li>{error}</li>}
+          {!data?.genres.length && !isPending && <li>: No genres found</li>}
           {data &&
             data.genres &&
             data.genres.length > 0 &&
