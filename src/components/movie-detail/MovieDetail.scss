@@ -1,0 +1,55 @@
+.detail-article {
+  padding: 2rem 0;
+}
+
+.detail-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-poster-wrap {
+  overflow: hidden;
+  max-width: 27rem;
+  margin: 0 auto 1rem;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.detail-para-text {
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+}
+
+.detail-para-heading {
+  font-size: 2rem;
+}
+
+.detail-rating-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.star-rating {
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.detail-company-logo {
+  width: 5rem;
+  height: 5rem;
+}
+.detail-company-name {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+.detail-company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
