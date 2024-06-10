@@ -20,7 +20,7 @@ import { useFetch } from "../../hooks/useFetch";
 
 export default function MovieList() {
   const { apiKey, apiBaseUrl } = useAppContext();
-  const [year, setYear] = useState(2013);
+  const [year, setYear] = useState(2012);
   const [moviesByYear, setMoviesByYear] = useState<{ [key: number]: MovieCardType[] }>({});
   const { data, isPending, error } = useFetch<{ results: MovieCardType[] }>(
     `${apiBaseUrl}/discover/movie?api_key=${apiKey}&sort_by=popularity.desc&primary_release_year=${year}&page=1&vote_count.gte=100`

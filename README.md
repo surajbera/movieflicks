@@ -17,6 +17,7 @@ Movie Database (TMDB) API to fetch and display information about movies.
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Future Enhancements](#future-enhancements)
 
 ## Features
 
@@ -73,3 +74,8 @@ Movie Database (TMDB) API to fetch and display information about movies.
    npm run dev
    ```
 2. Open [http://localhost:5173/](http://localhost:5173/) to view it in the browser.
+
+## Future Enhancements
+
+- Add user authentication to allow personalized watchlists.
+- Provide social sharing options
