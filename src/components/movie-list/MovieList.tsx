@@ -73,7 +73,7 @@ export default function MovieList() {
             </ul>
           </section>
         ))}
-        {isPending && year !== 2013 && <Loader />}
+        {isPending && year !== 2012 && <Loader />}
         {year >= currentYear && !isPending && (
           <h3 className='listing-end'>You reached end of the page!</h3>
         )}
