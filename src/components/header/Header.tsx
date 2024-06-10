@@ -49,24 +49,26 @@ export default function Header() {
           </button>
         </div>
 
-        <ul className='genre-wrap'>
-          {isPending && <HeaderShimmer />}
-          {error && !isPending && <li>{error}</li>}
-          {!data?.genres.length && !isPending && <li>: No genres found</li>}
-          {data &&
-            data.genres &&
-            data.genres.length > 0 &&
-            data.genres.map((genre) => (
-              <li key={genre.id} className='genre-item'>
-                <NavLink
-                  to={`/genre/${genre.id}`}
-                  className={({ isActive }) => (isActive ? "active" : "inactive")}
-                >
-                  {genre.name}
-                </NavLink>
-              </li>
-            ))}
-        </ul>
+        <nav>
+          <ul className='genre-wrap'>
+            {isPending && <HeaderShimmer />}
+            {error && !isPending && <li>{error}</li>}
+            {!data?.genres.length && !isPending && <li>: No genres found</li>}
+            {data &&
+              data.genres &&
+              data.genres.length > 0 &&
+              data.genres.map((genre) => (
+                <li key={genre.id} className='genre-item'>
+                  <NavLink
+                    to={`/genre/${genre.id}`}
+                    className={({ isActive }) => (isActive ? "active" : "inactive")}
+                  >
+                    {genre.name}
+                  </NavLink>
+                </li>
+              ))}
+          </ul>
+        </nav>
       </div>
       <SearchModal isOpen={isModalOpen} onClose={toggleModal} />
     </header>
