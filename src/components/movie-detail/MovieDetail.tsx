@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useAppContext } from "../../hooks/useAppContext";
 import NotFound from "../../assets/images/not-found.png";
 import "./MovieDetail.scss";
 import MovieRating from "../common/MovieRating";
 
 export default function MovieDetail() {
-  const { id } = useParams();
+  // const { id } = useParams();
   const { imageBaseUrl } = useAppContext();
 
   // Expanded dummy data structure
