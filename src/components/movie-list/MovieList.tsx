@@ -62,7 +62,7 @@ export default function MovieList() {
             <MovieListShimmerUi />
           </div>
         )}
-        {error && !isPending && <div>{error}</div>}
+        {error && !isPending && <div>{error}: Failed to fetch data</div>}
         {Object.entries(moviesByYear).map(([year, movies]) => (
           <section key={year} className='yearly-section'>
             <h2 className='year-display'>{year}</h2>

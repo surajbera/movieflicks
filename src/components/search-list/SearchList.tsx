@@ -66,14 +66,16 @@ export default function SearchList() {
     <main className='movie-section'>
       <div className='container'>
         {isPending && page === 1 && <MovieListShimmerUi />}
-        {error && !isPending && <div>{error}</div>}
+        {error && !isPending && <div>{error}: Failed to fetch data</div>}
         <ul className='movie-list'>
           {movies.map((movie, index) => (
             <MovieCard key={index} movie={movie} />
           ))}
         </ul>
         {isPending && page !== 1 && <Loader />}
-        {movies.length === 0 && !isPending && <div>No results found</div>}
+        {movies.length === 0 && !isPending && !error && (
+          <div>No results found for the search term: {query}. Pls try different search term.</div>
+        )}
         {page >= totalPages.current && !isPending && movies.length > 0 && (
           <h3 className='listing-end'>You reached end of the page!</h3>
         )}
