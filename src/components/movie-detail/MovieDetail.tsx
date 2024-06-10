@@ -32,8 +32,18 @@ export default function MovieDetail() {
     error,
   } = useFetch<MovieDetailType>(`${apiBaseUrl}/movie/${id}?api_key=${apiKey}`);
 
-  if (isPending) return <div className='container'>Loading...</div>;
-  if (error) return <div className='container'>Error: {error}</div>;
+  if (isPending)
+    return (
+      <div className='container' style={{ padding: "1rem" }}>
+        Loading...
+      </div>
+    );
+  if (error)
+    return (
+      <div className='container' style={{ padding: "1rem" }}>
+        Error: {error}
+      </div>
+    );
 
   const backgroundImageUrl =
     movie && movie.backdrop_path ? `${imageBaseUrl}${movie.backdrop_path}` : ""; // If no backdrop, use a default or empty string
