@@ -185,3 +185,8 @@ button {
   left: 0;
   overscroll-behavior: contain;
 }
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) var(--subtle-gray);
+}
