@@ -107,7 +107,7 @@ export default function MovieDetail() {
                     <strong className='detail-para-heading'>Budget:</strong>
                     <span className='detail-para-text'> ${movie.budget.toLocaleString()}</span>
                   </p>
-                  <div>
+                  <div className='company-info-container'>
                     <strong className='detail-para-heading'>Production Companies:</strong>
                     <ul className='detail-company-info'>
                       {movie.production_companies.map((company) => (

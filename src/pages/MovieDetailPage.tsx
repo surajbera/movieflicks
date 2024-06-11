@@ -11,6 +11,10 @@ export default function MovieDetailPage() {
     };
   }, []);
 
+  useEffect(() => {
+    document.title = "Movie Detail Page";
+  }, []);
+
   return (
     <>
       <Header />
